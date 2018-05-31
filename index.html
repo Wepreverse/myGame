@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="phaser.min.js"></script>
+	<script src="level1.js"></script>
+	<script src="Menu.js"></script>
+    <script src="GameOver.js"></script>
+	<script>
+		var game = new Phaser.Game(1000, 600, Phaser.AUTO, '', {
+            preload: preload,
+            create: create,
+            update: update
+        });
+        function preload(){
+        	game.load.image('startbtn','btn.png');
+        	game.load.image("krblk",'download.png')
+            game.load.image('bg','star-space-wallpaper-2.jpg')
+            game.load.image('aU','arrowUp.png')
+            game.load.image('aD','arrowDown.png')
+            game.load.image('aR','arrowRight.png')
+            game.load.image('aL','arrowLeft.png')
+            game.load.image('laser','laserPurple.png')
+            game.load.image('sBtn','shootBtn.png')
+            game.load.image('eK','rocket.png')
+            game.load.image('rocket','rocket.png')
+            game.load.image('rbtn','restart.png')
+            game.load.image('heart')
+        }
+        function create(){
+            game.state.add("Menu",Menu)
+            game.state.add("lev1",Level1)
+            game.state.add("gameover",GO)
+            game.state.start("Menu")
+        }
+        function update(){
+
+        }
+	</script>
+</body>
+</html>
